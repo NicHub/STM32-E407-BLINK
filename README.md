@@ -30,7 +30,7 @@ B0_1/B0_0 => B0_1
 B1_1/B1_0 => B1_0
 ````
 
-- Connect the USB cable to USB-OTG1. This is the USB connector that is closest to the Ethernet connector.
+- Connect the USB cable to USB-OTG1. This is the USB connector that is closest to the Ethernet connector. Note that the label is correct on the PCB but not on the image above!.
 
 - Optionally verify that the card is detected with the bash command `lsusb` and `dfu-util --list`. If no card is detected, check the Boot Mode Selection jumpers and push the reset button next to the jack power connector:
 
