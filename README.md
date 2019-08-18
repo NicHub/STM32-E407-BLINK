@@ -9,9 +9,9 @@ Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/A
 
 ### On macOS
 
-Install `dfu-util`
+Install `dfu-util` and `lsusb` with [Homebrew](https://brew.sh):
 
-    brew install dfu-util
+    brew install dfu-util lsusb
 
 
 ## SETUP
