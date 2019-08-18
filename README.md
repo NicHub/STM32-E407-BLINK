@@ -4,6 +4,11 @@ Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/A
 
 > It doesn’t work yet and this depot is here to explain what I tried so far.
 
+## IMAGES
+
+![](./images/STM32-E407-9_1.jpg)
+![](./images/STM32-E407-10_1.jpg)
+
 
 ## PREREQUISITE
 
