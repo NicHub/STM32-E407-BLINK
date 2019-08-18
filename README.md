@@ -36,9 +36,9 @@ lsusb
 Bus 020 Device 015: ID 0483:df11 STMicroelectronics STM32  BOOTLOADER  Serial: 336032683536
 ```
 
-- Compile and upload the code:
+- Compile and upload the code with PlatformIO.
 
-- Set the Boot Mode jumpers again:
+- Set the Boot Mode Selection jumpers again:
 
 ```
 B0_1/B0_0 => B0_0
