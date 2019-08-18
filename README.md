@@ -1,8 +1,6 @@
 # S T M 3 2 - E 4 0 7    B L I N K
 
-*Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware).*
-
-This project is meant to be compiled with [PlatformIO](https://platformio.org).
+Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework.
 
 <span style="color:red">
 It doesn’t work yet and this depot is here to explain what I tried so far.
@@ -20,9 +18,9 @@ Install `dfu-util`
 
 ## SETUP
 
-- Set the Power Input Select jumper (PWR_SEL) to 7-8 (powered through USB-OTG1). This jumper is located beside the power jack connector.
+- Set the Power Selection jumper (PWR_SEL) to 7-8 (i.e. USB-OTG1 power supply). This jumper is located next to the jack power plug connector.
 
-- Set the Boot Mode jumpers. These jumpers are located in the back of the card, beside the UEXT connector :
+- Set the Boot Mode Selection jumpers. These jumpers are located on the back of the board, next to the UEXT connector:
 
 ```
 B0_1/B0_0 => B0_1
