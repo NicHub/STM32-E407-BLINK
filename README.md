@@ -16,7 +16,7 @@ Install `dfu-util` and `lsusb` with [Homebrew](https://brew.sh):
 
 ## SETUP
 
-- Set the Power Selection jumper (PWR_SEL) to 7-8 (i.e. USB-OTG1 power supply). This jumper is located next to the jack power plug connector.
+- Set the Power Selection jumper (PWR_SEL) to 7-8 (i.e. USB-OTG1 power supply). This jumper is located next to the jack power connector.
 
 - Set the Boot Mode Selection jumpers. These jumpers are located on the back of the board, next to the UEXT connector:
 
@@ -27,13 +27,29 @@ B1_1/B1_0 => B1_0
 
 - Connect the USB cable to USB-OTG1. This is the USB connector that is closest to the Ethernet connector.
 
-- Optionally verify that the card is detected with the bash command `lsusb`:
+- Optionally verify that the card is detected with the bash command `lsusb` and `dfu-util --list`. If no card is detected, check the Boot Mode Selection jumpers and push the reset button next to the jack power connector:
 
 ```
 lsusb
 ```
 ```
 Bus 020 Device 015: ID 0483:df11 STMicroelectronics STM32  BOOTLOADER  Serial: 336032683536
+```
+```
+dfu-util --list
+```
+```
+dfu-util 0.9
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=3, name="@Device Feature/0xFFFF0000/01*004 e", serial="336032683536"
+Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=2, name="@OTP Memory /0x1FFF7800/01*512 e,01*016 e", serial="336032683536"
+Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=1, name="@Option Bytes  /0x1FFFC000/01*016 e", serial="336032683536"
+Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=0, name="@Internal Flash  /0x08000000/04*016Kg,01*064Kg,07*128Kg", serial="336032683536"
 ```
 
 - Compile and upload the code with PlatformIO.
