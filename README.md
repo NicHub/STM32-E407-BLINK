@@ -2,7 +2,7 @@
 
 Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework.
 
-<p style="color:red">It doesn’t work yet and this depot is here to explain what I tried so far.</p>
+> It doesn’t work yet and this depot is here to explain what I tried so far.
 
 
 ## PREREQUISITE
