@@ -18,8 +18,8 @@ Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/A
 
 > Note that `USB-OTG#1` and `#2` are inverted on the image compared to the board I have. It seems that the images (from Olimex) are showing an older revision of the board.
 
-![](./images/STM32-E407-9_1.jpg)
-![](./images/STM32-E407-10_1.jpg)
+![STM32-E407 top view](./images/STM32-E407-9_1.jpg)
+![STM32-E407 back view](./images/STM32-E407-10_1.jpg)
 
 
 ## PREREQUISITE
@@ -85,6 +85,7 @@ B1_1/B1_0 => B1_0 (unchanged)
 
 To read the serial output, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 (TX) of the UEXT connector.
 
+![STM32-E407 UEXT connector](./images/STM32-E407-15_2.jpg)
 
 ## REFERENCES
 

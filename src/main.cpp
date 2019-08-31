@@ -19,7 +19,7 @@ void setup()
     pinMode(LED_ARDUINO, OUTPUT);
 
     Serial6.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini
-    Serial6.println("\nSTART");
+    Serial6.print("\nSTART");
 }
 
 /**
@@ -27,12 +27,15 @@ void setup()
  */
 void loop()
 {
-    Serial6.println("LED ON");
+    Serial6.print("\n");
+    Serial6.print(millis());
+
+    Serial6.print("  LED ON");
     digitalWrite(LED_STME407, LOW);
     digitalWrite(LED_ARDUINO, HIGH);
     delay(20);
 
-    Serial6.println("LED OFF");
+    Serial6.print("  LED OFF");
     digitalWrite(LED_STME407, HIGH);
     digitalWrite(LED_ARDUINO, LOW);
     delay(980);
