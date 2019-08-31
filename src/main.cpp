@@ -19,17 +19,17 @@ void setup()
     pinMode(LED_ARDUINO, OUTPUT);
 
     // Serial USB (USB CDC) is read through USB-OTG#1 virtual com interface.
-    SerialUSB.begin();
+    SerialUSB.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini.
     Serial3.print("\nSerialUSB START");
 
     // Serial 3 is read with an UART Serial Bridge connected on
     // TX and GND pins of the BOOT header located beside the UEXT connector.
-    Serial3.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini
+    Serial3.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini.
     Serial3.print("\nSerial3 START");
 
     // Serial 6 is read with an UART Serial Bridge connected on
     // pin 3 (TX) and pin 2 (GND) of the UEXT connector.
-    Serial6.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini
+    Serial6.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini.
     Serial6.print("\nSerial6 START");
 }
 
