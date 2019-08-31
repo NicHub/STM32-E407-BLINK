@@ -1,10 +1,22 @@
 # S T M 3 2 - E 4 0 7    B L I N K
 
-Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework.
+Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework. The upload is done with an USB cable and not with a JTAG programmer.
 
-> It doesn’t work yet and this depot is here to explain what I tried so far.
+
+> This example works only if the STM32 platform version is 5.6.0 or higher. You can check the current version of this platform in your editor (VSCode on macOS for me), in the `PlatformIO Home / Platforms` pane. The STM32 platform is automaticaly installed by PlatformIO during the first build.
+>
+> This example didn’t work at first and the debugging story can be read here:
+> <https://community.platformio.org/t/stm32-e407-doesn-t-work-on-pio/9303/13>
+> and here: <https://www.olimex.com/forum/index.php?topic=7206.0>.
+>
+> During the debugging process, *maxgerhardt* forked this example and made an STM32Cube version of it (i.e. not using the Arduino framework). It works well and you can see it here: <https://github.com/maxgerhardt/STM32-E407-BLINK>.
+>
+> Thanks to *maxgerhardt* and *valeros* for their support.
+
 
 ## IMAGES
+
+> Note that `USB-OTG#1` and `#2` are inverted on the image compared to the board I have. It seems that the images (from Olimex) are showing an older revision of the board.
 
 ![](./images/STM32-E407-9_1.jpg)
 ![](./images/STM32-E407-10_1.jpg)
@@ -14,14 +26,14 @@ Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/A
 
 ### On macOS
 
-Install `dfu-util` and `lsusb` with [Homebrew](https://brew.sh):
+Install `dfu-util` and `lsusb` with [Homebrew](https://brew.sh). It is optional, but it can help in case of problems.
 
     brew install dfu-util lsusb
 
 
 ## SETUP
 
-- Set the Power Selection jumper (PWR_SEL) to 7-8 (i.e. USB-OTG1 power supply). This jumper is located next to the jack power connector.
+- Set the Power Selection jumper (PWR_SEL) to 7-8 (i.e. USB-OTG1 power supply). This jumper is located next to the power jack connector.
 
 - Set the Boot Mode Selection jumpers. These jumpers are located on the back of the board, next to the UEXT connector:
 
@@ -32,18 +44,18 @@ B1_1/B1_0 => B1_0
 
 - Connect the USB cable to USB-OTG1. This is the USB connector that is closest to the Ethernet connector. Note that the label is correct on the PCB but not on the image above!
 
-- Optionally, verify that the card is detected with the bash command `lsusb` and `dfu-util --list`. If no card is detected, check the Boot Mode Selection jumpers and push the reset button next to the jack power connector:
+- Optionally, verify that the card is detected with the bash command `lsusb` and `dfu-util --list`. If no card is detected, check the Boot Mode Selection jumpers and push the reset button next to the power jack connector.
 
-```
+```bash
 lsusb
 ```
-```
+```bash
 Bus 020 Device 015: ID 0483:df11 STMicroelectronics STM32  BOOTLOADER  Serial: 336032683536
 ```
-```
+```bash
 dfu-util --list
 ```
-```
+```bash
 dfu-util 0.9
 
 Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
@@ -59,16 +71,19 @@ Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=0,
 
 - Compile and upload the code with PlatformIO.
 
-- Set the Boot Mode Selection jumpers again:
+- The LED of the board located near the SD card slot and the Arduino LED (D13 on the board or PA5 in the sketch) should blink. Note that the program is executed right after the upload, but if you reset the board, it will be waiting for another upload and the program won’t run anymore. So for normal use, you need to set the Boot Mode Selection jumpers again:
 
-```
+```bash
 B0_1/B0_0 => B0_0
 B1_1/B1_0 => B1_0 (unchanged)
 ```
 
-- Reset the card. The reset button is located beside the power jack connector.
+- During development, you can let the Boot Mode Selection jumpers unchanged, but you need to reset the board before upload. The reset button is located beside the power jack connector.
 
-- The LED of the board located near the SD card slot should blink, but it doesn’t...
+
+## SERIAL OUTPUT
+
+To read the serial output, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 (TX) of the UEXT connector.
 
 
 ## REFERENCES

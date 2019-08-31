@@ -7,8 +7,8 @@
 
 #include <Arduino.h>
 
-#define LED_STME407 PC13
-#define LED_ARDUINO PA5
+#define LED_STME407 PC13 // Built-in LED. Inverted logic.
+#define LED_ARDUINO PA5  // Labeled D13 on the board.
 
 /**
  *
@@ -18,8 +18,8 @@ void setup()
     pinMode(LED_STME407, OUTPUT);
     pinMode(LED_ARDUINO, OUTPUT);
 
-    Serial.begin(115200);
-    Serial.println("\nSTART");
+    Serial6.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini
+    Serial6.println("\nSTART");
 }
 
 /**
@@ -27,13 +27,13 @@ void setup()
  */
 void loop()
 {
-    Serial.println("HIGH");
-    digitalWrite(LED_STME407, HIGH);
-    digitalWrite(LED_ARDUINO, HIGH);
-    delay(200);
-
-    Serial.println("LOW");
+    Serial6.println("LED ON");
     digitalWrite(LED_STME407, LOW);
+    digitalWrite(LED_ARDUINO, HIGH);
+    delay(20);
+
+    Serial6.println("LED OFF");
+    digitalWrite(LED_STME407, HIGH);
     digitalWrite(LED_ARDUINO, LOW);
-    delay(200);
+    delay(980);
 }
