@@ -83,7 +83,7 @@ B1_1/B1_0 => B1_0 (unchanged)
 
 ## SERIAL OUTPUT
 
-To read the serial output, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 (TX) of the UEXT connector.
+To read the serial output, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 (TX) of the UEXT connector or on the TX and GND pins of the BOOT header located beside the UEXT connector (the pin labels are on the back of the board).
 
 ![STM32-E407 UEXT connector](./images/STM32-E407-15_2.jpg)
 
