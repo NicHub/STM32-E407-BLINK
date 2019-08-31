@@ -26,9 +26,9 @@ Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/A
 
 ### On macOS
 
-Install `dfu-util` and `lsusb` with [Homebrew](https://brew.sh). It is optional, but it can help in case of problems.
+Install `libusb`, `lsusb` and `dfu-util` with [Homebrew](https://brew.sh). The library `libusb` is required. The other two are optional but can help in case of problems.
 
-    brew install dfu-util lsusb
+    brew install libusb lsusb dfu-util
 
 
 ## SETUP
