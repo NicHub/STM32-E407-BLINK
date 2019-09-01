@@ -3,10 +3,13 @@
  *
  * Copyright (C) 2019  Nicolas Jeanmonod, ouilogique.com
  *
+ * https://github.com/NicHub/STM32-E407-BLINK
+ *
  */
 
 #include <Arduino.h>
-#include <System_Clock_Configuration.h> // Needed for SerialUSB to work.
+#include "System_Clock_Configuration.h" // Needed for SerialUSB on USB-OTG#1 to work.
+
 #define LED_STME407 PC13 // Built-in LED. Inverted logic.
 #define LED_ARDUINO PA5  // Labeled D13 on the board.
 
@@ -18,9 +21,9 @@ void setup()
     pinMode(LED_STME407, OUTPUT);
     pinMode(LED_ARDUINO, OUTPUT);
 
-    // Serial USB (USB CDC) is read through USB-OTG#1 virtual com interface.
+    // Serial USB (USB CDC) is read through USB-OTG#1 virtual interface.
     SerialUSB.begin(BAUD_RATE); // Change BAUD_RATE in platformio.ini.
-    Serial3.print("\nSerialUSB START");
+    SerialUSB.print("\nSerialUSB START");
 
     // Serial 3 is read with an UART Serial Bridge connected on
     // TX and GND pins of the BOOT header located beside the UEXT connector.
@@ -38,11 +41,11 @@ void setup()
  */
 void loop()
 {
-    SerialUSB.print("\nSerialUSB ");
+    SerialUSB.print("\nSerialUSB  ");
     SerialUSB.print(millis());
-    Serial3.print("\nSerial3 ");
+    Serial3.print("\nSerial3  ");
     Serial3.print(millis());
-    Serial6.print("\nSerial6 ");
+    Serial6.print("\nSerial6  ");
     Serial6.print(millis());
 
     SerialUSB.print("  LED ON");

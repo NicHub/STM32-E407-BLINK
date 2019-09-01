@@ -2,7 +2,6 @@
 
 Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework. The upload is done with an USB cable and not with a JTAG programmer.
 
-
 > This example works only if the STM32 platform version is 5.6.0 or higher. You can check the current version of this platform in your editor (VSCode on macOS for me), in the `PlatformIO Home / Platforms` pane. The STM32 platform is automaticaly installed by PlatformIO during the first build.
 >
 > This example didn’t work at first and the debugging story can be read here:
@@ -83,9 +82,28 @@ B1_1/B1_0 => B1_0 (unchanged)
 
 ## SERIAL OUTPUT
 
-To read the serial output, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 (TX) of the UEXT connector or on the TX and GND pins of the BOOT header located beside the UEXT connector (the pin labels are on the back of the board).
+Serial output is avaible from three different sources:
+
+### SerialUSB
+
+To read SerialUSB, you only need an USB cable connected to the USB-OTG#1 port, i.e. it is the same cable that we used to program the board.
+
+For SerialUSB to work, the function `SystemClock_Config(void)` must be overriden by the one provided in this project. The original function can be found here: `~/.platformio/packages/framework-arduinoststm32/variants/BLACK_F407XX/variant.cpp` or here: `C:\Users\<home>\.platformio\packages\framework-arduinoststm32\variants\BLACK_F407XX\variant.cpp`.
+
+For more explanations see: <https://community.platformio.org/t/stm32-e407-doesn-t-work-on-pio/9303/3>.
+
+> Note that unlike the Arduino UNO and similar boards, a terminal showing the output of SerialUSB must be restarted manualy each time the board is reset. This is quite annoying during developement and you may prefer the other two serial ports below.
+
+### Serial3
+
+To read Serial3, you need to connect an UART Serial Bridge to the GND and TX pins of the BOOT header located beside the UEXT connector (the pin labels are on the back of the board).
+
+### Serial6
+
+To read Serial6, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 (TX) of the UEXT connector.
 
 ![STM32-E407 UEXT connector](./images/STM32-E407-15_2.jpg)
+
 
 ## REFERENCES
 
