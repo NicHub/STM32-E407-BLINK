@@ -37,8 +37,8 @@ Install `libusb`, `lsusb` and `dfu-util` with [Homebrew](https://brew.sh). The l
 - Set the Boot Mode Selection jumpers. These jumpers are located on the back of the board, next to the UEXT connector:
 
 ```bash
-B0_1/B0_0 → B0_1
-B1_1/B1_0 → B1_0
+B0_1/B0_0 ⇒ B0_1
+B1_1/B1_0 ⇒ B1_0
 ````
 
 - Connect the USB cable to USB-OTG1. This is the USB connector that is closest to the Ethernet connector. Note that the label is correct on the PCB but not on the image above!
@@ -73,8 +73,8 @@ Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=0,
 - The LED of the board located near the SD card slot and the Arduino LED (D13 on the board or PA5 in the sketch) should blink. Note that the program is executed right after the upload, but if you reset the board, it will be waiting for another upload and the program won’t run anymore. So for normal use, you need to set the Boot Mode Selection jumpers again:
 
 ```bash
-B0_1/B0_0 → B0_0
-B1_1/B1_0 → B1_0 (unchanged)
+B0_1/B0_0 ⇒ B0_0
+B1_1/B1_0 ⇒ B1_0 (unchanged)
 ```
 
 - During development, you can let the Boot Mode Selection jumpers unchanged, but you need to reset the board before upload. The reset button is located beside the power jack connector.
