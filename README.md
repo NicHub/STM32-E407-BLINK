@@ -1,8 +1,8 @@
 # S T M 3 2 - E 4 0 7    B L I N K
 
-Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework. The upload is done with an USB cable and not with a JTAG programmer.
+Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) on [PlatformIO](https://platformio.org) with the Arduino framework. The upload is done with a USB cable and not with a JTAG programmer.
 
-> This example works only if the STM32 platform version is 5.6.0 or higher. You can check the current version of this platform in your editor (VSCode on macOS for me), in the `PlatformIO Home / Platforms` pane. The STM32 platform is automaticaly installed by PlatformIO during the first build.
+> This example works only if the STM32 platform version is 5.6.0 or higher. You can check the current version of this platform in your editor (VSCode on macOS for me), in the `PlatformIO Home / Platforms` pane. The STM32 platform is automatically installed by PlatformIO during the first build.
 >
 > This example didn’t work at first and the debugging story can be read here:
 > <https://community.platformio.org/t/stm32-e407-doesn-t-work-on-pio/9303/13>
@@ -36,9 +36,9 @@ Install `libusb`, `lsusb` and `dfu-util` with [Homebrew](https://brew.sh). The l
 
 - Set the Boot Mode Selection jumpers. These jumpers are located on the back of the board, next to the UEXT connector:
 
-```
-B0_1/B0_0 => B0_1
-B1_1/B1_0 => B1_0
+```bash
+B0_1/B0_0 → B0_1
+B1_1/B1_0 → B1_0
 ````
 
 - Connect the USB cable to USB-OTG1. This is the USB connector that is closest to the Ethernet connector. Note that the label is correct on the PCB but not on the image above!
@@ -73,8 +73,8 @@ Found DFU: [0483:df11] ver=2200, devnum=11, cfg=1, intf=0, path="20-1.4", alt=0,
 - The LED of the board located near the SD card slot and the Arduino LED (D13 on the board or PA5 in the sketch) should blink. Note that the program is executed right after the upload, but if you reset the board, it will be waiting for another upload and the program won’t run anymore. So for normal use, you need to set the Boot Mode Selection jumpers again:
 
 ```bash
-B0_1/B0_0 => B0_0
-B1_1/B1_0 => B1_0 (unchanged)
+B0_1/B0_0 → B0_0
+B1_1/B1_0 → B1_0 (unchanged)
 ```
 
 - During development, you can let the Boot Mode Selection jumpers unchanged, but you need to reset the board before upload. The reset button is located beside the power jack connector.
@@ -82,17 +82,17 @@ B1_1/B1_0 => B1_0 (unchanged)
 
 ## SERIAL OUTPUT
 
-Serial output is avaible from three different sources:
+Serial output is available from three different sources:
 
 ### SerialUSB
 
-To read SerialUSB, you only need an USB cable connected to the USB-OTG#1 port, i.e. it is the same cable that we used to program the board.
+To read SerialUSB, you only need a USB cable connected to the USB-OTG#1 port, i.e. it is the same cable that we used to program the board.
 
-For SerialUSB to work, the function `SystemClock_Config(void)` must be overriden by the one provided in this project. The original function can be found here: `~/.platformio/packages/framework-arduinoststm32/variants/BLACK_F407XX/variant.cpp` or here: `C:\Users\<home>\.platformio\packages\framework-arduinoststm32\variants\BLACK_F407XX\variant.cpp`.
+For SerialUSB to work, the function `SystemClock_Config(void)` must be overridden by the one provided in this project. The original function can be found here: `~/.platformio/packages/framework-arduinoststm32/variants/BLACK_F407XX/variant.cpp` or here: `C:\Users\<home>\.platformio\packages\framework-arduinoststm32\variants\BLACK_F407XX\variant.cpp`.
 
 For more explanations see: <https://community.platformio.org/t/stm32-e407-doesn-t-work-on-pio/9303/3>.
 
-> Note that unlike the Arduino UNO and similar boards, a terminal showing the output of SerialUSB must be restarted manualy each time the board is reset. This is quite annoying during developement and you may prefer the other two serial ports below.
+> Note that unlike the Arduino UNO and similar boards, a terminal showing the output of SerialUSB must be restarted manually each time the board is reset. This is quite annoying during development and you may prefer the other two serial ports below.
 
 ### Serial3
 
