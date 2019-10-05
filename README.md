@@ -25,24 +25,30 @@ Hello World example for the [STM32-E407 board](https://www.olimex.com/Products/A
 
 ### On macOS
 
-Install `libusb`, `lsusb` and `dfu-util` with [Homebrew](https://brew.sh). The library `libusb` is required. The other two are optional but can help in case of problems.
+- Install `libusb`, `lsusb` and `dfu-util` with [Homebrew](https://brew.sh). The library `libusb` is required. The other two are optional but can help in case of problems.
 
-    brew install libusb lsusb dfu-util
-
+```bash
+brew install libusb lsusb dfu-util
+```
 
 ### On Ubuntu 18
 
+- Install `99-platformio-udev.rules`:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 
 sudo service udev restart
+```
 
+- Add current user to `dialout` and `plugdev` groups:
+
+```bash
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
 ```
 
-After typing the commands above, reboot, plug the USB connector of the board and test that everything is OK with the command:
+- Reboot, plug the board USB connector and test that everything is OK with the command:
 
 ```bash
 dfu-util --list
