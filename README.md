@@ -139,3 +139,8 @@ To read Serial6, you need to connect an UART Serial Bridge to pin 2 (GND) and 3 
   - https://docs.platformio.org/en/latest/boards/ststm32/black_f407zg.html
 - dfu-util
   - http://dfu-util.sourceforge.net
+- Question asked
+  - https://github.com/platformio/platform-ststm32/issues/295
+  - https://community.platformio.org/t/unknown-upload-protocol-olimex-arm-usb-ocd-h/9866
+  - https://community.platformio.org/t/stm32-e407-doesn-t-work-on-pio/9303/27
+  - https://www.olimex.com/forum/index.php?topic=7206.msg27434#msg27434

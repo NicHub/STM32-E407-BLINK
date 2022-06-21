@@ -53,7 +53,7 @@ void loop()
     Serial6.print("  LED ON");
     digitalWrite(LED_STME407, LOW);
     digitalWrite(LED_ARDUINO, HIGH);
-    delay(20);
+    delay(500);
 
     SerialUSB.print("  LED OFF");
     Serial3.print("  LED OFF");
